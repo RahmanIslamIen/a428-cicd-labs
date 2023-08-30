@@ -29,11 +29,11 @@ pipeline {
                         id: 'manual-approval',
                         message: 'Lanjutkan ke tahap Deploy?',
                         parameters: [
-                            choice(choices: ['lanjut', 'batal'], description: 'Pilih opsi:', name: 'approval')
+                            choice(choices: ['Proceed', 'Abort'], description: 'Pilih opsi:', name: 'approval')
                         ]
                     )
-                    if (userInput.approval == 'batal') {
-                        error('Pipeline di berhentikan oleh pengguna/user.')
+                    if (userInput.approval == 'Abort') {
+                        error('Pipeline dihentikan oleh pengguna.')
                     }
                 }
             }
