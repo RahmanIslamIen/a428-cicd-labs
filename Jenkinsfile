@@ -21,6 +21,7 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
+        // ngebuat stage baru Manual Approval sebelum di Deploy.
         stage('Manual Approval') {
             steps {
                 script {
@@ -32,7 +33,7 @@ pipeline {
                         ]
                     )
                     if (userInput.approval == 'Abort') {
-                        error('Pipeline dihentikan oleh pengguna.')
+                        error('Pipeline di berhentikan oleh pengguna/user.')
                     }
                 }
             }
