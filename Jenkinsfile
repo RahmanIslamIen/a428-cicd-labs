@@ -29,11 +29,11 @@ pipeline {
                         id: 'manual-approval',
                         message: 'Lanjutkan ke tahap Deploy?',
                         parameters: [
-                            choice(choices: ['Proceed', 'Abort'], description: 'Pilih opsi:', name: 'approval')
+                            choice(choices: ['lanjut', 'batal'], description: 'Pilih opsi:', name: 'approval')
                         ]
                     )
-                    if (userInput == 'Abort') {
-                        error('Pipeline dihentikan oleh pengguna.')
+                    if (userInput == 'batal') {
+                        error('Pipeline di berhentikan oleh pengguna/user.')
                     }
                 }
             }
@@ -41,8 +41,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                 input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
-                 sleep 1 * 60
+                //  input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
+                sleep 1 * 60
                 sh './jenkins/scripts/kill.sh'
             }
         }
