@@ -32,7 +32,7 @@ pipeline {
                             choice(choices: ['Proceed', 'Abort'], description: 'Pilih opsi:', name: 'approval')
                         ]
                     )
-                    if (userInput.approval == 'Abort') {
+                    if (userInput == 'Abort') {
                         error('Pipeline dihentikan oleh pengguna.')
                     }
                 }
