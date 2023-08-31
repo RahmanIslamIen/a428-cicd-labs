@@ -6,11 +6,11 @@ pipeline {
         }
     }
     stages {
-        // stage('Preparation') {
-        //     steps {
-        //         sh 'npm cache clean --force'
-        //     }
-        // }
+        stage('Preparation') {
+            steps {
+                sh 'npm cache clean --force'
+            }
+        }
         stage('Build') { 
             steps {
                 sh 'npm install'
