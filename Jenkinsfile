@@ -6,7 +6,7 @@ pipeline {
         }
     }
     stages {
-        // buat bershihkan cache agar npm tidak stuck di npm fix audit
+        // buat bershihkan cache agar npm tidak stuck saat build dan muncul pesan npm fix audit
         // stage('Preparation') {
         //     steps {
         //         sh 'npm cache clean --force'
