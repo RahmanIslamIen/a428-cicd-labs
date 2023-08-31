@@ -14,6 +14,9 @@ pipeline {
         // }
         stage('Build') { 
             steps {
+                // bersihkan chache dulu
+                sh 'npm cache clean --force'
+                // baru install
                 sh 'npm install'
             }
         }
