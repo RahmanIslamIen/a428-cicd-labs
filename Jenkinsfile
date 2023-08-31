@@ -6,11 +6,12 @@ pipeline {
         }
     }
     stages {
-        stage('Preparation') {
-            steps {
-                sh 'npm cache clean --force'
-            }
-        }
+        // buat bershihkan cache agar npm tidak stuck di npm fix audit
+        // stage('Preparation') {
+        //     steps {
+        //         sh 'npm cache clean --force'
+        //     }
+        // }
         stage('Build') { 
             steps {
                 sh 'npm install'
